@@ -1,52 +1,53 @@
 class AdminsBackoffice::SubjectsController < AdminsBackofficeController
-  
-    before_action :verify_password, only: [:update]
-    before_action :set_subject, only: [:edit, :update, :destroy]
-    
+   
+  before_action :set_subject, only: [:edit, :update, :destroy]
+
     def index
-      @Subjects = Subject.all.page(params[:page])
+    @subjects = Subject.all.page(params[:page])
     end
-  
+    
     def new
-      @subject = Subject.new
+    @subject = Subject.new
     end
   
     def create
-      @subject = Subject.new(params_subject)
-  
-      if @subject.save
-        redirect_to admins_backoffice_subjects_path, notice: "Assunto/Áreas cadastrado com sucesso!"
+        @subject = Subject.new(params_subject)
+        if @subject.save
+          redirect_to admins_backoffice_subjects_path, notice:
+     "Assunto/Área cadastrado com sucesso!"
       else
         render :new
       end
     end
-  
-    def edit
-    end
-  
-    def update
-     
-      if @subject.update(params_admin)
-        redirect_to admins_backoffice_subjects_path, notice: "Assunto/Áreas atualizado com sucesso!"
-      else
-        render :edit
+
+      def edit
       end
-    end
   
-    def destroy
-      if @subject.destroy
-        redirect_to admins_backoffice_subjects_path, notice: "Assunto/Áreas excluído com sucesso!"
-      else
-        render :index 
+      def update
+        if @subject.update(params_subject)
+          redirect_to admins_backoffice_subjects_path, notice:
+       "Assunto/Área atualizado com sucesso!"
+        else
+            render :edit
+        end
       end
-    end
+
+        def destroy
+          if @subject.destroy
+            redirect_to admins_backoffice_subjects_path, notice:
+       "Assunto/Área excluído com sucesso!"
+          else
+           render :index
+        end
+      end
   
     private
   
-    def params_admin
-      params.require(:subject).permit(:description)
-    end
-  
+    private
+
+    def params_subject
+     params.require(:subject).permit(:description)
+  end
     def set_subject
       @subject = Subject.find(params[:id])
     end
