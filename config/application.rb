@@ -30,5 +30,9 @@ module TimeToAnswer
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+
+# Allow Web Console from Vagrant
+    config.web_console.permissions = '10.0.2.2'
   end
 end
