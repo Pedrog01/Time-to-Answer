@@ -85,7 +85,7 @@
 
   <% if notice %>
         <%= javascript_tag do %>
-            $.bootstrapGrowl('Você ACERTOU!!  ', {
+            $.bootstrapGrowl('<%= notice %>', {
             type: 'success', // (null, 'info', 'danger', 'success')
             align: 'right', // ('left', 'right', or 'center')
             allow_dismiss: true, // If true then will display a cross to close the popup.
