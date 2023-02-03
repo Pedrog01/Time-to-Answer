@@ -8,12 +8,21 @@ class User < ApplicationRecord
          accepts_nested_attributes_for :user_profile, reject_if: :all_blank
 
 
+  #Callback
+  after_create :set_statistic
+
   # Validations
   validates :first_name, presence: true, length: { minimum: 2 }, on: :update
   
   # Virtual Attributes
   def full_name
     [self.first_name,self.last_name].join(' ')
+  end
+
+  private
+
+  def set_statistic
+    AdminStatistic.set_event(AdminStatistic::EVENTS[:total_users])
   end
 
 end
