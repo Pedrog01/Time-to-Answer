@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.0'
+ruby '2.4.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.0'
+gem 'rails', '~> 5.2.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server
@@ -37,18 +37,18 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'devise'
-gem 'rails-i18n', '~> 5.1'  
+gem 'rails-i18n', '~> 5.1'
 gem 'tty-spinner'
 gem 'faker'
 gem 'kaminari'
 gem 'kaminari-i18n'
-gem 'cocoon'
-
-
+gem "cocoon"
+gem 'prawn-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw] 
+  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rails_db', '2.0.4'
 end
 
 group :development do
@@ -59,13 +59,11 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'awesome_print'
-  gem 'rails_db', '2.3.0'
 end
-
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '>= 2.15', '< 4.0'
+  gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'

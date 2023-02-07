@@ -4,6 +4,6 @@ class Admin < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   
-         #Kamiari
-        paginates_per 5
+  # Kaminari
+  paginates_per 5
 end

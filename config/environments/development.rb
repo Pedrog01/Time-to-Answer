@@ -4,18 +4,16 @@ Rails.application.configure do
   # Devise Config
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
-  #Mailtrap config 
-
+  # Mailtrap Config
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :user_name => '6384fa5f0cc989',
-    :password => '577e63c7ebb54a',
-    :address => 'sandbox.smtp.mailtrap.io',
-    :domain => 'sandbox.smtp.mailtrap.io',
+    :user_name => 'ebbfe7d55834b6',
+    :password => '7b0efb02b5793b',
+    :address => 'smtp.mailtrap.io',
+    :domain => 'smtp.mailtrap.io',
     :port => '2525',
     :authentication => :cram_md5
   }
-
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
@@ -73,5 +71,6 @@ Rails.application.configure do
 
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
-  config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+  # config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+  config.file_watcher = ActiveSupport::FileUpdateChecker
 end
